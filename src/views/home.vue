@@ -2,7 +2,7 @@
 en:
     hello: "Hello World"
 fr:
-    hello: "Bonjour Morray"
+    hello: "La mort leur va si bien"
 </i18n>
 
 <template lang="pug">
