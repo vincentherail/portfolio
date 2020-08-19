@@ -7,6 +7,8 @@ import Ripple from 'vue-ripple-directive'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import SmoothScroll from 'smoothscroll-for-websites'
 import toasted from 'vue-toasted'
+import FlatSurfaceShader from 'vue-flat-surface-shader'
+
 
 import i18n from '@core/i18n'
 import router from '@core/routes'
@@ -36,6 +38,8 @@ Vue.use(VueMq, {
 		lg: Infinity,
 	},
 })
+
+Vue.use(FlatSurfaceShader)
 
 aos.init({
 	offset: 200,
