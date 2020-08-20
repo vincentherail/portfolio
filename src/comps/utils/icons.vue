@@ -6,19 +6,22 @@
 
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTimes, faAngleUp } from '@fortawesome/free-solid-svg-icons'
-import { } from '@fortawesome/free-regular-svg-icons'
-import { } from '@fortawesome/free-brands-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import {  } from '@fortawesome/free-regular-svg-icons'
+import { faGithub, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
-library.add(faTimes, faAngleUp)
+library.add(faBars, faGithub, faLinkedin, faInstagram)
 
-@Component({
-  components: {
-    ic: FontAwesomeIcon,
-  }
-})
+// @Component({
+//   components: {
+//     ic: FontAwesomeIcon,
+//   }
+// })
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
 export default class Icons extends Vue {
   @Prop(String) fas
   @Prop(String) fab

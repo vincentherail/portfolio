@@ -28,12 +28,14 @@ import Icons from '@cmp/utils/icons.vue'
 
 import './registerServiceWorker'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
+
 import 'aos/dist/aos.css'
 
 Vue.config.productionTip = false
 
 Vue.directive('rp', Ripple)
 Vue.component('fa', Icons)
+
 
 Vue.use(toasted, {
 	position: 'bottom-center',

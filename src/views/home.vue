@@ -2,7 +2,7 @@
 en:
     hello: "Hello World"
 fr:
-    hello: "La mort leur va si bien"
+    hello: "Bonjour le monde"
 </i18n>
 
 <template lang="pug">
@@ -10,7 +10,7 @@ fr:
   //- p(v-t="'hello'")
 
   //- ==== MAIN ====
-  main  
+  div  
 
     //- ==== HEADER =====
     header.l-header
@@ -22,12 +22,16 @@ fr:
           ul.nav__list
             li.nav__item
               a.nav__link.active(href='#home') Home
+            li.nav__item
               a.nav__link.active(href='#about') A propos
+            li.nav__item
               a.nav__link.active(href='#skills') Compétences
+            li.nav__item
               a.nav__link.active(href='#work') Projets
+            li.nav__item
               a.nav__link.active(href='#contact') Contact
         .nav__toggle#nav-toggle
-          i.bx.bx-menu 
+          font-awesome-icon(icon="bars")
 
     //-==== BODY ====
     body.l-body
@@ -40,16 +44,15 @@ fr:
           span.home__title-color Vincent 
           | Développeur Web
 
-          a.button(href='#') Contact
+          a.button(href='#contact') Contact
 
         .home__social
-          <a href="" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
           a.home__social-icon(href="")
-            i.bx.bxl-linkedin
+            font-awesome-icon(:icon="['fab', 'github']")
           a.home__social-icon(href="")
-            i.bx.bxl-instagram
+            font-awesome-icon(:icon="['fab', 'linkedin']")            
           a.home__social-icon(href="")
-            i.bx.bxl-github
+            font-awesome-icon(:icon="['fab', 'instagram']")            
 
         .home__img  
           img(src="../assets/img/vangogh.png" alt="") 
@@ -68,7 +71,7 @@ fr:
 
       //- --===== SKILLS =====
       section.skills.section#skills
-        h2.section-title Skills
+        h2.section-title Compétences
 
         .skills__container.bd-grid        
           div
@@ -115,7 +118,7 @@ fr:
       
       //-===== WORK =====
       section.work.section#work
-          h2.section-title Work
+          h2.section-title Projets
 
           .work__container.bd-grid
               .work__img
@@ -141,19 +144,18 @@ fr:
                   input.contact__input(type="mail" placeholder="Email")
                   textarea.contact__input(name="" id="" cols="0" rows="10")
                   input.contact__button.button(type="button" value="Envoyer")
-                  <input type="button"  class="contact__button button">
       
-      //- ===== FOOTER =====-
-      footer.footer
-          p.footer__title Vincent
-          .footer__social
-              a.footer__icon(href="#")
-                i.bx.bxl-facebook
-              a.footer__icon(href="#")
-                i.bx.bxl-instagram
-              a.footer__icon(href="#")
-                i.bx.bxl-linkedin
-          p &#169; 2020 copyright
+    //- ===== FOOTER =====-
+    footer.footer
+        p.footer__title Vincent
+        .footer__social
+            a.footer__icon(href="#")
+              font-awesome-icon(:icon="['fab', 'github']")
+            a.footer__icon(href="#")
+              font-awesome-icon(:icon="['fab', 'linkedin']")
+            a.footer__icon(href="#")
+              font-awesome-icon(:icon="['fab', 'instagram']")
+        p &#169; 2020 copyright
 
 </template>
 
@@ -161,8 +163,11 @@ fr:
 
 
 <script>
+
+
         // <!--===== SCROLL REVEAL =====-->
         // vérifier s'il n'y en a pas dans le boilerplate
+
         // <script src="https://unpkg.com/scrollreveal"></script>
 
 // import { Vue, Component } from 'vue-property-decorator'
@@ -196,52 +201,7 @@ fr:
 </script>
 
 
-<style lang="stylus" scoped>
-
-
-about-card
-  min-height calc(100vh - 150px)
-  background #333
-  padding 3em
-  border-radius 10px
-  color white
-
-card-title
-    display flex
-    align-items center
-    background #222
-    border-radius 10px
-
-    avatar
-      height 50px
-      border 1px solid rgba(255, 255, 255, 0.4)
-      border-radius 50%
-      margin 0 30px
-
-  title-text-content p
-    margin-bottom 0
-    color rgb(210, 210, 210)
-  title-text-content h2
-    margin-top 0
-
-card-content p
-  line-height 1.5
-  margin 30px auto
-
-table 
-  border-spacing 0px
-  margin 50px auto
-  tr th, tr td
-    border 1px solid white
-    border-top none
-    padding 10px
-    text-align center
-    &:first-of-type
-      border-left none
-    &:nth-of-type(2)
-      border-right none
-
-
+<style lang="stylus">
 
 </style>
 
