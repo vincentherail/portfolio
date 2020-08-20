@@ -1,15 +1,26 @@
 import Vue from 'vue'
 import App from '@/App.vue'
+
+// gestion des méta-datas
 import Meta from 'vue-meta'
+
+// gestion des breakpoints
 import VueMq from 'vue-mq'
+
+// animate on scroll 
 import aos from 'aos'
+
+// ripple effect (balayage )
 import Ripple from 'vue-ripple-directive'
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
-import SmoothScroll from 'smoothscroll-for-websites'
+
+// toasted button
 import toasted from 'vue-toasted'
+
+// triangle lighted background
 import FlatSurfaceShader from 'vue-flat-surface-shader'
 
-
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import SmoothScroll from 'smoothscroll-for-websites'
 import i18n from '@core/i18n'
 import router from '@core/routes'
 import store from '@core/stores'
