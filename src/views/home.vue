@@ -47,11 +47,11 @@ fr:
           a.button(href='#contact') Contact
 
         .home__social
-          a.home__social-icon(href="")
+          a.home__social-icon(href="https://github.com/vincentherail")
             font-awesome-icon(:icon="['fab', 'github']")
-          a.home__social-icon(href="")
+          a.home__social-icon(href="https://www.linkedin.com/in/vincent-herail-143a72135/")
             font-awesome-icon(:icon="['fab', 'linkedin']")            
-          a.home__social-icon(href="")
+          a.home__social-icon(href="https://www.instagram.com/vangoghmethod/")
             font-awesome-icon(:icon="['fab', 'instagram']")            
 
         .home__img  
@@ -61,13 +61,14 @@ fr:
       section.about.section#about
         h2.section-title A Propos
 
-          .about__container.bd-grid
-            .about__img
-              img(src="../assets/img/vincent.jpg" alt="")
+        .about__container.bd-grid
+          .about__img
+            img(src="../assets/img/vincent.jpg" alt="")
               
           div
-            h2.about__text Moi c'est Vincent
-            p.about__text Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate cum expedita quo culpa tempora, assumenda, quis fugiat ut voluptates soluta, aut earum nemo recusandae cumque perferendis! Recusandae alias accusamus atque.         
+            h2.about__subtitle Moi c'est Vincent
+            p.about__text Après un début de carrière dans la gestion et le marketing, mon attrait pour la technologie a fait de moi un référent technique au sein des organisations où je travaillais. Bureautique et multimédia m’ont progressivement orienté vers le cœur de la transformation numérique : le développement ! 
+            br/ Aujourd’hui je souhaite intégrer une structure dynamique et reconnue pour donner le meilleur de moi-même.         
 
       //- --===== SKILLS =====
       section.skills.section#skills
@@ -149,11 +150,11 @@ fr:
     footer.footer
         p.footer__title Vincent
         .footer__social
-            a.footer__icon(href="#")
+            a.footer__icon(href="https://github.com/vincentherail")
               font-awesome-icon(:icon="['fab', 'github']")
-            a.footer__icon(href="#")
+            a.footer__icon(href="https://www.linkedin.com/in/vincent-herail-143a72135/")
               font-awesome-icon(:icon="['fab', 'linkedin']")
-            a.footer__icon(href="#")
+            a.footer__icon(href="https://www.instagram.com/vangoghmethod/")
               font-awesome-icon(:icon="['fab', 'instagram']")
         p &#169; 2020 copyright
 
@@ -452,6 +453,9 @@ img{
 .about__img img{
   width: 200px;
   border-radius: .5rem;
+}
+.about__text{
+  margin-bottom: var(--mb-2);
 }
 
 /* ===== SKILLS =====*/

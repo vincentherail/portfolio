@@ -1,6 +1,6 @@
 <template lang="pug">
 	//- wrapping in a icon so i can use font-size to scale 
-	i 
+	//- i 
 		ic(:icon="icon" :size="size")
 </template>
 
