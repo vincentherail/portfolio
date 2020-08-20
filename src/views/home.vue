@@ -18,10 +18,11 @@ fr:
         div
           a.nav__logo(href='#') Vincent
 
-        .nav__menu#nav-menu
+        //- LARGE SCREEN MENU
+        .nav__menu#nav-menu(v-if="!mobileView")
           ul.nav__list
             li.nav__item
-              a.nav__link.active(href='#home') Home
+              a.nav__link.active(href='#home') Accueil
             li.nav__item
               a.nav__link.active(href='#about') A propos
             li.nav__item
@@ -30,9 +31,22 @@ fr:
               a.nav__link.active(href='#work') Projets
             li.nav__item
               a.nav__link.active(href='#contact') Contact
-        .nav__toggle#nav-toggle
-          font-awesome-icon(icon="bars")
 
+        //- MOBILE MENU
+        .nav__toggle(v-if="mobileView" @click="showNav = !showNav" )
+          font-awesome-icon(icon="bars")
+          ul.nav__list__toggle(:class="{'open':showNav}")
+            li.nav__item
+              a.nav__link.active(href='#home') Accueil
+            li.nav__item
+              a.nav__link.active(href='#about') A propos
+            li.nav__item
+              a.nav__link.active(href='#skills') Compétences
+            li.nav__item
+              a.nav__link.active(href='#work') Projets
+            li.nav__item
+              a.nav__link.active(href='#contact') Contact
+              
     //-==== MAIN ====
     main.l-main
 
@@ -80,7 +94,8 @@ fr:
             p.skills__text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit optio id vero amet, alias architecto consectetur error eum eaque sit.
             .skills__data
               .skills__names                
-                i.bx.bxl-html5.skills__icon
+                i.bx.bxl-html5
+                font-awesome-icon.skills__icon(:icon="['fab', 'html5']")            
                 span.skills__name HTML5
               .skills__bar.skills__html
 
@@ -89,7 +104,7 @@ fr:
 
             .skills__data
               .skills__names                
-                i.bx.bxl-CSS3.skills__icon
+                font-awesome-icon.skills__icon(:icon="['fab', 'css3']")
                 span.skills__name CS3
               .skills__bar.skills__css
 
@@ -98,7 +113,7 @@ fr:
 
             .skills__data
               .skills__names                
-                i.bx.bxl-javascript.skills__icon
+                font-awesome-icon.skills__icon(:icon="['fab', 'js']")
                 span.skills__name JAVASCRIPT
               .skills__bar.skills__js
 
@@ -107,7 +122,7 @@ fr:
 
             .skills__data
               .skills__names                
-                i.bx.bxs-paint.skills__icon
+                font-awesome-icon.skills__icon(icon="palette")
                 span.skills__name UX/UI
               .skills__bar.skills__ux
 
@@ -164,41 +179,29 @@ fr:
 
 
 <script>
-
-
+export default {
+    data: () => {
+      return  {
+        mobileView: false,
+        showNav: false
+    };
+  },
+  methods: {
+    handleView(){
+      this.mobileView = window.innerWidth <= 768;
+    }
+  },
+  created(){
+    this.handleView();
+    window.addEventListener('resize', this.handleView)
+  }
+}
 // <!--===== SCROLL REVEAL =====-->
 // vérifier s'il n'y en a pas dans le boilerplate
 
 // <script src="https://unpkg.com/scrollreveal"></script>
 
-// import { Vue, Component } from 'vue-property-decorator'
-// @Component
-// export default class Home extends Vue {
 
-//   light = {
-//     count: 2,
-//     xyScalar: 1,
-//     zOffset: 276,
-//     ambient: '#ffffff',
-//     diffuse: '#002b52',
-//     speed: .0007,
-//     autopilot: true,
-//     draw: true
-//   }
-
-//   mesh = {
-//     width: 1.2,
-//     height: 1.5,
-//     depth: 20,
-//     segments: 14,
-//     slices: 10,
-//     xRange: 0.15,
-//     yRange: 0.15,
-//     ambient: '#000000',
-//     diffuse: '#15639b',
-//     speed: 0.0007
-//   }
-// }
 </script>
 
 
@@ -335,17 +338,19 @@ img{
   align-items: center;
   font-weight: var(--font-semi);
 }
-@media screen and (max-width: 768px){
-  .nav__menu{
-    position: fixed;
-    top: var(--header-height);
-    right: -100%;
-    width: 80%;
-    height: 100%;
-    padding: 2rem;
-    background-color: var(--second-color);
-    transition: .5s;
-  }
+
+.nav__list__toggle{
+  position: fixed;
+  top: var(--header-height);
+  right: -100%;
+  width: 80%;
+  height: 100%;
+  padding: 2rem;
+  background-color: var(--second-color);
+  transition: .5s;
+}
+.open{
+  transform: translateX(-120%);
 }
 .nav__item{
   margin-bottom: var(--mb-4);
@@ -481,7 +486,7 @@ img{
   box-shadow: 0 4px 25px rgba(14,36,49,.15);
 }
 .skills__icon{
-  font-size: 2rem;
+  font-size: 1.7rem;
   margin-right: var(--mb-2);
   color: var(--first-color);
 }
@@ -505,10 +510,10 @@ img{
   width: 85%;
 }
 .skills__js{
-  width: 65%;
+  width: 90%;
 }
 .skills__ux{
-  width: 85%;
+  width: 80%;
 }
 .skills__img{
   border-radius: .5rem;
@@ -588,24 +593,21 @@ img{
     width: 80px;
     top: 3rem;
   }
-
   .nav{
     height: calc(var(--header-height) + 1rem);
   }
   .nav__list{
-    display: flex;
-    padding-top: 0;
-  }
-  .nav__item{
-    margin-left: var(--mb-6);
-    margin-bottom: 0;
-  }
-  .nav__toggle{
-    display: none;
-  }
-  .nav__link{
-    color: var(--second-color);
-  }
+  display: flex;
+  padding-top: 0;
+}
+.nav__item{
+  margin-left: var(--mb-6);
+  margin-bottom: 0;
+}
+
+.nav__link{
+  color: var(--second-color);
+}
 
   .home{
     height: 100vh;

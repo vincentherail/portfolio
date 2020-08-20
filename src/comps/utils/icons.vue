@@ -6,13 +6,13 @@
 
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faPalette } from '@fortawesome/free-solid-svg-icons'
 import {  } from '@fortawesome/free-regular-svg-icons'
-import { faGithub, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedin, faInstagram, faHtml5, faCss3, faJs } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
-library.add(faBars, faGithub, faLinkedin, faInstagram)
+library.add(faBars, faPalette, faGithub, faLinkedin, faInstagram, faHtml5, faCss3, faJs)
 
 // @Component({
 //   components: {
