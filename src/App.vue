@@ -93,7 +93,7 @@
 
 main.app
 	&.lg
-		background #222222 url('~@rs/pattern.png')
+		
 		min-width 1000px
 		min-height 800px
 
