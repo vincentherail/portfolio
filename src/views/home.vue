@@ -22,30 +22,30 @@ fr:
         .nav__menu#nav-menu(v-if="!mobileView")
           ul.nav__list
             li.nav__item
-              a.nav__link.active(href='#home') Accueil
+              a.nav__link(href='#home') Accueil
             li.nav__item
-              a.nav__link.active(href='#about') A propos
+              a.nav__link(href='#about') A propos
             li.nav__item
-              a.nav__link.active(href='#skills') Compétences
+              a.nav__link(href='#skills') Compétences
             li.nav__item
-              a.nav__link.active(href='#work') Projets
+              a.nav__link(href='#work') Projets
             li.nav__item
-              a.nav__link.active(href='#contact') Contact
+              a.nav__link(href='#contact') Contact
 
         //- MOBILE MENU
         .nav__toggle(v-if="mobileView" @click="showNav = !showNav" )
           font-awesome-icon(icon="bars")
           ul.nav__list__toggle(:class="{'open':showNav}")
             li.nav__item
-              a.nav__link.active(href='#home') Accueil
+              a.nav__link(href='#home') Accueil
             li.nav__item
-              a.nav__link.active(href='#about') A propos
+              a.nav__link(href='#about') A propos
             li.nav__item
-              a.nav__link.active(href='#skills') Compétences
+              a.nav__link(href='#skills') Compétences
             li.nav__item
-              a.nav__link.active(href='#work') Projets
+              a.nav__link(href='#work') Projets
             li.nav__item
-              a.nav__link.active(href='#contact') Contact
+              a.nav__link(href='#contact') Contact
               
     //-==== MAIN ====
     main.l-main
