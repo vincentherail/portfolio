@@ -1,13 +1,4 @@
-<i18n>
-en:
-    hello: "Hello World"
-fr:
-    hello: "Bonjour le monde"
-</i18n>
-
 <template lang="pug">
-  //- flat-surface-shader.shader(type="webgl" :light="light" :mesh="mesh")
-  //- p(v-t="'hello'")
 
   //- ==== MAIN ====
   div  
@@ -239,12 +230,12 @@ export default {
 
 /*===== Margins =====*/
 :root
-  --mb-1 0.5rem
-  --mb-2 1rem
-  --mb-3 1.5rem
-  --mb-4 2rem
-  --mb-5 2.5rem
-  --mb-6 3rem
+  --mb-one 0.5rem
+  --mb-two 1rem
+  --mb-three 1.5rem
+  --mb-four 2rem
+  --mb-five 2.5rem
+  --mb-six 3rem
 
 
 /*===== z index =====*/
@@ -290,8 +281,8 @@ img
   position relative
   font-size var(--h2-font-size)
   color var(--first-color)
-  margin-top var(--mb-2)
-  margin-bottom var(--mb-4)
+  margin-top var(--mb-two)
+  margin-bottom var(--mb-four)
   text-align center
 
 .section-title::after
@@ -317,8 +308,8 @@ img
   grid-template-columns 100%
   grid-column-gap 2rem
   width calc(100% - 2rem)
-  margin-left var(--mb-2)
-  margin-right var(--mb-2)
+  margin-left var(--mb-two)
+  margin-right var(--mb-two)
 
 .l-header
   width 100%
@@ -353,7 +344,7 @@ img
   transform translateX(-120%)
 
 .nav__item
-  margin-bottom var(--mb-4)
+  margin-bottom var(--mb-four)
 
 .nav__link
   position relative
@@ -390,7 +381,7 @@ img
 
 .home__title
   font-size var(--big-font-size)
-  margin-bottom var(--mb-5)
+  margin-bottom var(--mb-five)
 
 .home__title-color
   color var(--first-color)
@@ -401,7 +392,7 @@ img
 
 .home__social-icon
   width max-content
-  margin-bottom var(--mb-2)
+  margin-bottom var(--mb-two)
   font-size 1.5rem
   color var(--second-color)
 
@@ -410,9 +401,9 @@ img
 
 .home__img
   position absolute
-  right 0
+  right 5%
   bottom 10%
-  width 295px
+  width auto
 
 
 /*BUTTONS*/
@@ -434,7 +425,7 @@ img
   text-align center
 
 .about__subtitle
-  margin-bottom var(--mb-2)
+  margin-bottom var(--mb-two)
 
 .about__img
   justify-self center
@@ -444,7 +435,7 @@ img
   border-radius .5rem
 
 .about__text
-  margin-bottom var(--mb-2)
+  margin-bottom var(--mb-two)
 
 
 /* ===== SKILLS =====*/
@@ -453,10 +444,10 @@ img
   text-align center
 
 .skills__subtitle
-  margin-bottom var(--mb-2)
+  margin-bottom var(--mb-two)
 
 .skills__text
-  margin-bottom var(--mb-4)
+  margin-bottom var(--mb-four)
 
 .skills__data
   display flex
@@ -465,13 +456,13 @@ img
   position relative
   font-weight var(--font-semi)
   padding .5rem 1rem
-  margin-bottom var(--mb-4)
+  margin-bottom var(--mb-four)
   border-radius .5rem
   box-shadow 0 4px 25px rgba(14,36,49,.15)
 
 .skills__icon
   font-size 1.7rem
-  margin-right var(--mb-2)
+  margin-right var(--mb-two)
   color var(--first-color)
 
 .skills__names
@@ -529,7 +520,7 @@ img
   border-radius .5rem
   border 1.5px solid var(--second-color)
   outline none
-  margin-bottom var(--mb-4)
+  margin-bottom var(--mb-four)
 
 .contact__button
   display block
@@ -550,15 +541,15 @@ img
 
 .footer__title
   font-size 2rem
-  margin-bottom var(--mb-4)
+  margin-bottom var(--mb-four)
 
 .footer__social
-  margin-bottom var(--mb-4)
+  margin-bottom var(--mb-four)
 
 .footer__icon
   font-size 1.5rem
   color #fff
-  margin 0 var(--mb-2)
+  margin 0 var(--mb-two)
 
 
 /* ===== MEDIA QUERIES=====*/
@@ -571,7 +562,7 @@ img
     padding-bottom 3rem
   
   .section-title
-    margin-bottom var(--mb-6)
+    margin-bottom var(--mb-six)
   
   .section-title::after
     width 80px
@@ -585,7 +576,7 @@ img
     padding-top 0
   
   .nav__item
-    margin-left var(--mb-6)
+    margin-left var(--mb-six)
     margin-bottom 0
   
   .nav__link
@@ -605,7 +596,7 @@ img
   
   .home__social-icon
     margin-bottom 0
-    margin-right var(--mb-4)
+    margin-right var(--mb-four)
   
   .home__img
     width 457px
