@@ -1,7 +1,3 @@
-# TEMPLATE
+# PERSONNAL RESPONSIVE PORTFOLIO
 
-## Test it yourself
-```
-npm install
-npm run serve
-```
+https://pensive-goldberg-dfced0.netlify.app/ 
