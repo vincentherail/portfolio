@@ -82,7 +82,7 @@
         .skills__container.bd-grid        
           div
             h2.skills__subtitle Compétences Pro
-            p.skills__text L'auto-évaluation en pourcentage des compétences est une pirouette de personal branding parfaitement subjective. Par rapport à quoi / qui s'évalue-t-on?? J'apprécie toutefois de m'en servir car elle me permet de montrer mon niveau de maîtrise des compétences les unes par rapport aux autres.
+            p.skills__text Lorem Hip Hip Hip Hourra
             .skills__data
               .skills__names                
                 i.bx.bxl-html5
