@@ -1,4 +1,4 @@
-app = 'Vincent SIDY'
+app = 'Portfolio Vince Dev'
 themeColor = '#212121'
 ogImage = 'https://URL/img/og/og-image.jpg'
 touchIconSize = '180x180'
@@ -7,14 +7,14 @@ tileColor = '#2d89ef'
 
 [en]
 title = 'Home'
-titleTemplate = '''t => t ? `BoilerPlate | ${t}` : 'BoilerPlate' '''
+titleTemplate = '''t => t ? `Portfolio Vince Dev | ${t}` : 'Portfolio Vince Dev' '''
 description = ''
 ogTitle = 'Home'
 ogTemplate = '''t => `${t} - BoilerPlate.io`'''
 
 [fr]
 title = 'Accueil'
-titleTemplate = '''t => t ? `BoilerPlate | ${t}` : 'BoilerPlate' '''
+titleTemplate = '''t => t ? `Portfolio Vince Dev | ${t}` : 'Portfolio Vince Dev' '''
 description = ''
 ogTitle = 'Accueil'
 ogTemplate = '''t => `${t} - BoilerPlate.io`'''
