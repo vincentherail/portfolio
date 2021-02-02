@@ -47,7 +47,7 @@
           h1.home__title Hey,
             br/ Moi c'est 
             span.home__title-color Vincent 
-            br/ Je suis Développeur Front Junior
+            br/ Je suis Dev Front Junior
 
           a.button(href='#contact') Contact
 
@@ -82,7 +82,7 @@
         .skills__container.bd-grid        
           div
             h2.skills__subtitle Compétences Pro
-            p.skills__text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit optio id vero amet, alias architecto consectetur error eum eaque sit.
+            p.skills__text L'auto-évaluation en pourcentage des compétences est une pirouette de personal branding parfaitement subjective. Par rapport à quoi / qui s'évalue-t-on?? J'apprécie toutefois de m'en servir car elle me permet de montrer mon niveau de maîtrise des compétences les unes par rapport aux autres.
             .skills__data
               .skills__names                
                 i.bx.bxl-html5
@@ -91,7 +91,7 @@
               .skills__bar.skills__html
 
               div
-                span.skills__percentage 95%
+                span.skills__percentage 90%
 
             .skills__data
               .skills__names                
@@ -100,7 +100,7 @@
               .skills__bar.skills__css
 
               div
-                span.skills__percentage 85%
+                span.skills__percentage 75%
 
             .skills__data
               .skills__names                
@@ -109,7 +109,7 @@
               .skills__bar.skills__js
 
               div
-                span.skills__percentage 90%
+                span.skills__percentage 80%
 
             .skills__data
               .skills__names                
@@ -118,7 +118,7 @@
               .skills__bar.skills__ux
 
               div
-                span.skills__percentage 80%
+                span.skills__percentage 85%
           
           div              
             img.skills__img(src="../assets/img/work3.jpg" alt="")
@@ -162,7 +162,7 @@
               font-awesome-icon(:icon="['fab', 'linkedin']")
             a.footer__icon(href="https://www.instagram.com/vangoghmethod/")
               font-awesome-icon(:icon="['fab', 'instagram']")
-        p &#169; 2020 copyright
+        p &#169; 2021 copyright
 
 </template>
 
