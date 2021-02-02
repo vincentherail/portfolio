@@ -45,9 +45,9 @@
       section.home.bd-grid#home
         div.home__data
           h1.home__title Hey,
-            br/ Je suis 
+            br/ Moi c'est 
             span.home__title-color Vincent 
-            br/ Développeur Web
+            br/ Je suis Développeur Front Junior
 
           a.button(href='#contact') Contact
 
