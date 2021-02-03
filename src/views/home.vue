@@ -73,7 +73,7 @@
           div
             h2.about__subtitle Moi c'est Vincent
             p.about__text Après un début de carrière dans la gestion et le marketing, mon attrait pour la technologie a fait de moi un référent technique au sein des organisations où je travaillais. Bureautique et multimédia m’ont progressivement orienté vers le cœur de la transformation numérique : le développement ! 
-            br/ Aujourd’hui je souhaite intégrer une structure dynamique et reconnue pour donner le meilleur de moi-même.         
+            br/ Aujourd’hui je souhaite intégrer une structure dynamique et reconnue pour donner le meilleur de moi-même         
 
       //- --===== SKILLS =====
       section.skills.section#skills
