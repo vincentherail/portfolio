@@ -39,6 +39,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/fontawesome',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -68,7 +69,19 @@ export default {
       }
     }
   },
-
+  fontawesome: {
+    icons: {
+      solid: ['faHome', 'faPalette'],
+      brands: [
+        'faGithub', 
+        'faLinkedin', 
+        'faInstagram', 
+        'faHtml5', 
+        'faCss3', 
+        'faJs', 
+      ]    
+    }
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
