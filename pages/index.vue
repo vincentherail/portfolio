@@ -6,13 +6,37 @@
         <div>
           <a href="#">VINCENT</a>
         </div>
-        <div class="nav_menu">
+
+        <!-- LARGE SCREEN MENU -->
+        <scrollactive 
+          class="nav_menu" 
+          :duration="50"
+          active-class="isActive"
+          v-if="!mobileView" 
+          v-on:itemchanged="onItemChanged"
+        >
           <ul>
-            <li v-for="item in items" :key="item">
-              <a :href="'#' + item">{{item}}</a>
+            <li v-for="item in items" :key="item.link" class="nav_item">
+              <a 
+              :href="'#' + item.link" 
+              class="nav_link scrollactive-item" 
+              >
+              {{item.title}}
+              </a>
             </li>
           </ul>
+        </scrollactive>
+        
+        <!-- MOBILE MENU -->
+        <div class="nav_toggle" v-else @click="showNav = !showNav">
+            <font-awesome-icon :icon="['fas', 'bars']" />
+            <ul :class="{'open':showNav}">
+              <li v-for="item in items" :key="item.link" class="nav_item">
+                <a :href="'#' + item.link" class="nav_link">{{item.title}}</a>
+              </li>
+            </ul>
         </div>
+
       </nav>
     </header>
 
@@ -40,7 +64,7 @@
         </div>
 
         <div class="hero_img">
-          <img src="/vangogh.png" alt="vangogh_lock">
+          <img src="/vincent.jpg" alt="photo_vincent">
         </div>
       </section>
 
@@ -49,7 +73,7 @@
         <h2 class="section_title">A propos</h2>
         <div class="about_container">
           <div class="about_img">
-            <img src="/vincent.jpg" alt="photo_vincent">
+            <img src="/vangogh.png" alt="vangogh_lock">
           </div>
           <div>
             <h3 class="about_subtitles">Entrepreunariat & technologies</h3>
@@ -122,6 +146,7 @@
         </form>
       </section>
 
+
     </main>
 
     <!-- ====== FOOTER ====== -->
@@ -139,10 +164,20 @@ export default {
   components: {},
   data() {
     return {
-      items: ['hero', 'about', 'competences', 'projects', 'contact']
+      items: [
+        {link:'about', title: 'A Propos'}, 
+        {link:'competences', title: 'Compétences'}, 
+        {link:'projects', title: 'Projets'}, 
+        {link:'contact', title: 'Contact'}
+        ],
+      mobileView: false,
+      showNav: false
     }
   },
   methods: {
+    handleView(){
+      this.mobileView = window.innerWidth <= 768;
+    },
     sendEmail: (e) => {
       emailjs.sendForm('service_a494ztq', 'template_g0pg96j', e.target, 'user_Tm1FJXS84TGFElsWMsQfV')
         .then((result) => {
@@ -163,6 +198,10 @@ export default {
       document.documentElement.scrollTop = 0; // Chrome, Firefox, IE and Opera
     }
   },
+  created(){
+    this.handleView();
+    window.addEventListener('resize', this.handleView)
+  },
   mounted() {
     document.addEventListener('scroll', this.handleScroll)
   },
@@ -180,7 +219,7 @@ export default {
 :root{
   --extra-light-blue: #88a6f7;
   --light-blue: #4070F4;
-  --dark-blue: #0E2431;
+  --dark-blue: #0e2544;
 }
 
 /*===== Typo =====*/
@@ -188,8 +227,10 @@ export default {
   --body-font: 'Poppins', sans-serif;
   --big-font-size: 2rem;
   --h2-font-size: 1.25rem;
-  --normal-font-size: 0.938rem
+  --normal-font-size: 0.938rem;
+  --font-semi: 600
 }
+
 @media screen and (min-width: 768px) {
   :root{
     --big-font-size: 3.5rem;
@@ -201,6 +242,7 @@ export default {
 
 /*===== Margins =====*/
 :root{
+  --header-height: 3rem;
   --mb-one: 0.5rem;
   --mb-two: 1rem;
   --mb-three: 1.5rem;
@@ -292,25 +334,94 @@ img{
   padding-bottom: 2rem
 }
 
-/* header{
+/*===== NAV =====*/
 
-} */
-nav{
-  display: flex;
-  height: 50px;
+header{
   width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(146,161,176,.15)
+}
+nav{
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--mb-two);
+  padding-right: var(--mb-two);
+  height: var(--header-height);
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: var(--font-semi)
 }
+
 .nav_menu{
-  width: 80%;
-  padding-left: auto;
+  width: 70%;
+  margin-right: 0;
+  display: flex;
+  justify-content: space-around;
+  /* padding-left: auto; */
 }
+
+/* .nav_menu a:active{
+  color: red
+} */
+
+.isActive{
+  color: var(--dark-blue) !important;
+}
+
 .nav_menu ul{
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
+
+.nav_toggle ul{
+  position: fixed;
+  top: var(--header-height);
+  right: -100%;
+  width: 80%;
+  height: 100%;
+  padding: 2rem;
+  background-color: var(--dark-blue);
+  transition: .5s
+}
+
+.nav_toggle .nav_item{
+  margin-bottom: var(--mb-four)
+}
+
+
+.open{
+  transform: translateX(-120%)
+}
+
+.nav_link{
+  position :relative;
+  /* color: #fff */
+}
+
+.nav_link:hover{
+  position: relative
+}
+
+.nav_link:hover::after, .isActive::after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0.18rem;
+  left: 0;
+  top: 2rem;
+  background-color: var(--light-blue)
+}
+
+
+/*
 nav li{
   list-style-type: none;
-}
+} */
 </style>
