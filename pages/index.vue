@@ -4,12 +4,12 @@
     <header>
       <nav>
         <div>
-          <a href="#">Vincent</a>
+          <a href="#">VINCENT</a>
         </div>
         <div class="nav_menu">
           <ul>
             <li v-for="item in items" :key="item">
-              <a href="#">{{item}}</a>
+              <a :href="'#' + item">{{item}}</a>
             </li>
           </ul>
         </div>
@@ -18,6 +18,7 @@
 
     <!-- ====== MAIN ====== -->
     <main>
+      <button @click="topFunction()" id="goTopBtn" ref="goTopBtn" title="Go to top">Top</button>
 
       <!-- ====== HERO BANNER ====== -->
       <section class="hero" id="hero">
@@ -44,7 +45,7 @@
       </section>
 
       <!-- ====== ABOUT ====== -->
-      <section class="about" id="">
+      <section class="about" id="about">
         <h2 class="section_title">A propos</h2>
         <div class="about_container">
           <div class="about_img">
@@ -62,7 +63,7 @@
 
 
       <!-- ====== COMPETENCES ====== -->
-      <section class="competences" id="">
+      <section class="competences" id="competences">
         <h2 class="section_title">Compétences</h2>
         <div class="skills_container">
           <div>
@@ -83,7 +84,7 @@
 
 
       <!-- ====== PROJETS ====== -->
-      <section class="projects" id="">
+      <section class="projects" id="projects">
         <h2 class="section_title">Projets</h2>
         <div class="projects_container">
           <div class="project_img">
@@ -109,20 +110,24 @@
 
 
       <!-- ====== CONTACT ====== -->
-      <section class="contact" id="">
+      <section class="contact" id="contact">
         <form class="contact-form" @submit.prevent="sendEmail">
           <label>Name</label>
-          <input type="text" name="user_name">
+          <input type="text" name="user_name" required>
           <label>Email</label>
-          <input type="email" name="user_email">
+          <input type="email" name="user_email" required>
           <label>Message</label>
-          <textarea name="message"></textarea>
+          <textarea name="message" required></textarea>
           <input type="submit" value="Send">
         </form>
       </section>
 
     </main>
 
+    <!-- ====== FOOTER ====== -->
+    <footer>
+      <span>&copy; {{ new Date().getFullYear() }}</span>
+    </footer>
 
   </div>
 </template>
@@ -134,7 +139,7 @@ export default {
   components: {},
   data() {
     return {
-      items: ['Accueil', 'A propos', 'Compétences', 'Projets', 'Contact']
+      items: ['hero', 'about', 'competences', 'projects', 'contact']
     }
   },
   methods: {
@@ -145,7 +150,167 @@ export default {
         }, (error) => {
             console.log('FAILED...', error);
         });
+    },
+    handleScroll (event) {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+          this.$refs.goTopBtn.style.display = "block";
+        } else {
+          this.$refs.goTopBtn.style.display = "none";
+        }
+    },
+    topFunction: () => {
+      document.body.scrollTop = 0; // Safari
+      document.documentElement.scrollTop = 0; // Chrome, Firefox, IE and Opera
     }
-  }
+  },
+  mounted() {
+    document.addEventListener('scroll', this.handleScroll)
+  },
+  destroyed () {
+    document.removeEventListener('scroll', this.handleScroll);
+  },
 }
 </script>
+
+<style>
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/*===== Colors =====*/
+:root{
+  --extra-light-blue: #88a6f7;
+  --light-blue: #4070F4;
+  --dark-blue: #0E2431;
+}
+
+/*===== Typo =====*/
+:root{
+  --body-font: 'Poppins', sans-serif;
+  --big-font-size: 2rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: 0.938rem
+}
+@media screen and (min-width: 768px) {
+  :root{
+    --big-font-size: 3.5rem;
+    --h2-font-size: 2rem;
+    --normal-font-size: 1rem
+  }
+  
+}
+
+/*===== Margins =====*/
+:root{
+  --mb-one: 0.5rem;
+  --mb-two: 1rem;
+  --mb-three: 1.5rem;
+  --mb-four: 2rem;
+  --mb-five: 2.5rem;
+  --mb-six: 3rem
+}
+
+
+/*===== z index =====*/
+:root{
+  --z-back: -10;
+  --z-normal: 1;
+  --z-tooltip: 10;
+  --z-fixed: 100
+}
+
+/*===== BASE =====*/
+*,::before,::after{
+  box-sizing: border-box
+}
+
+html{
+  scroll-behavior: smooth;
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--dark-blue);
+}
+
+h1,h2,p{
+  margin: 0
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+a{
+  text-decoration: none
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+  display: block
+}
+
+#goTopBtn {
+  display: none; 
+  animation: fadeIn ease 0.5s;
+  position: fixed; 
+  bottom: 20px; 
+  right: 30px; 
+  z-index: 99; 
+  border: none; 
+  outline: none; 
+  background-color: var(--extra-light-blue); 
+  color: white; 
+  cursor: pointer; 
+  padding: 12px; 
+  border-radius: 10px; 
+  font-size: 15px; 
+}
+
+@keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+#goTopBtn:hover {
+  background-color: var(--light-blue); 
+}
+
+/*===== CLASS CSS ===== */
+.section_title{
+  position: relative;
+  font-size: var(--h2-font-size);
+  color: var(--light-blue);
+  margin-top: var(--mb-two);
+  margin-bottom :var(--mb-four);
+  text-align: center
+}
+
+.section{
+  padding-top: 3rem;
+  padding-bottom: 2rem
+}
+
+/* header{
+
+} */
+nav{
+  display: flex;
+  height: 50px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav_menu{
+  width: 80%;
+  padding-left: auto;
+}
+.nav_menu ul{
+  display: flex;
+  justify-content: space-between;
+}
+nav li{
+  list-style-type: none;
+}
+</style>
