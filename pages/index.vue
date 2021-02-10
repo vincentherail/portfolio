@@ -13,7 +13,6 @@
           :duration="50"
           active-class="isActive"
           v-if="!mobileView" 
-          v-on:itemchanged="onItemChanged"
         >
           <ul>
             <li v-for="item in items" :key="item.link" class="nav_item">
@@ -46,21 +45,10 @@
 
       <!-- ====== HERO BANNER ====== -->
       <section class="hero" id="hero">
-        <h1>Hey, moi c'est Vincent</h1>
-        <h2>Je suis dev front junior !</h2>
-
-        <button>Contact</button>
-
-        <div class="hero_social">
-          <a href="https://github.com/vincentherail">
-            <font-awesome-icon :icon="['fab', 'github']" />
-          </a>
-          <a href="https://www.linkedin.com/in/vincent-herail-143a72135/">
-            <font-awesome-icon :icon="['fab', 'linkedin']" />
-          </a>
-          <a href="https://www.instagram.com/vangoghmethod/">
-            <font-awesome-icon :icon="['fab', 'instagram']" />
-          </a>
+        <div class="hero_data">
+          <h1 class="hero_title">Hello, moi c'est Vincent!</h1>
+          <h2>Je suis développeur front junior, avec 1 an et demi d'expérience en codage, et dix ans en design et marketing.</h2>
+          <a class="button" :href="'#contact'">Contact</a>
         </div>
 
         <div class="hero_img">
@@ -70,17 +58,53 @@
 
       <!-- ====== ABOUT ====== -->
       <section class="about" id="about">
-        <h2 class="section_title">A propos</h2>
+        <h2 class="section_title">Parcours</h2>
         <div class="about_container">
-          <div class="about_img">
-            <img src="/vangogh.png" alt="vangogh_lock">
+          <div class="about_box marketing">
+            <div class="about_img">
+              <img src="/vangogh_shoes.png" alt="vangogh_shoes">
           </div>
-          <div>
-            <h3 class="about_subtitles">Entrepreunariat & technologies</h3>
-            <p class="about_text">
-              Après un début de carrière dans la gestion et le marketing, mon attrait pour la technologie a fait de moi un référent technique au sein des organisations où je travaillais. Bureautique et multimédia m’ont progressivement orienté vers le cœur de la transformation numérique : le développement ! 
-              <br/>Aujourd’hui je souhaite intégrer une structure dynamique et reconnue pour donner le meilleur de moi-même et progresser en compétences.
-            </p>
+            <div>
+              <h3 class="about_subtitles">Marketing</h3>
+              <p class="about_text">
+                Diplômé d'un master en entrepreneuriat, j'ai été conseillé en création d'entreprise au sein d'un réseau national de franchise pendant trois ans. 
+                <br/>Puis je suis devenu indépendant, et j'ai élargi mon champ d'activité auprès d'artistes et de chercheurs d'emploi.
+              </p>
+              <a href="https://www.linkedin.com/in/vincent-herail-143a72135/" class="about_social_icon">
+                <font-awesome-icon :icon="['fab', 'linkedin']" />
+              </a>
+            </div>
+          </div>
+          <div class="about_box design">
+            <div class="about_img">
+              <img src="/vangogh_sunflowers.png" alt="vangogh_sunflowers">
+            </div>
+            <div>
+              <h3 class="about_subtitles">Design</h3>
+              <p class="about_text">
+                La fréquentation du monde de la culture m'ayant ouvert de nouveaux horizons, je me suis formé à la réalisation et au montage vidéo afin d'ajouter ces prestations à mes services de bases.  
+                <br/>Aujourd'hui encore je publie un manuel de design sur mon compte Instagram @vangoghmethod.
+              </p>
+              <a href="https://www.instagram.com/vangoghmethod/" class="about_social_icon">
+                <font-awesome-icon :icon="['fab', 'instagram']" />
+              </a>
+            </div>
+          </div>
+
+          <div class="about_box developpement">
+            <div class="about_img">
+              <img src="/vangogh.png" alt="vangogh_lock">
+            </div>
+            <div>
+              <h3 class="about_subtitles">Développement</h3>
+              <p class="about_text">
+                Marketing et multimédia m’ont progressivement orienté vers le cœur de la transformation numérique : le développement ! 
+                <br/>Je souhaite désormais intégrer une structure dynamique et reconnue pour donner le meilleur de moi-même et progresser en compétences.
+              </p>
+              <a href="https://github.com/vincentherail" class="about_social_icon">
+               <font-awesome-icon :icon="['fab', 'github']" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -165,7 +189,7 @@ export default {
   data() {
     return {
       items: [
-        {link:'about', title: 'A Propos'}, 
+        {link:'about', title: 'Parcours'}, 
         {link:'competences', title: 'Compétences'}, 
         {link:'projects', title: 'Projets'}, 
         {link:'contact', title: 'Contact'}
@@ -295,7 +319,7 @@ img{
 
 #goTopBtn {
   display: none; 
-  animation: fadeIn ease 0.5s;
+  animation: fadeIn ease 0.6s; 
   position: fixed; 
   bottom: 20px; 
   right: 30px; 
@@ -419,9 +443,102 @@ nav{
   background-color: var(--light-blue)
 }
 
+main{
+    max-width: 1024px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
-/*
-nav li{
-  list-style-type: none;
-} */
+/*===== HERO =====*/
+.hero{
+  height: calc(100vh - 10rem);
+  row-gap: 1rem;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  padding-top: 1rem
+}
+
+.hero_data{
+  /* align-self: center */
+  width: 192px;
+  flex-grow: 3;
+}
+.hero_img {
+  width: 192px;
+  flex-grow: 1;
+  /* margin: 3rem */
+  margin-right: 3rem;
+  margin-left: 3rem;
+}
+
+.hero_img img{
+  border-radius: 50%;
+}
+
+.hero_title{
+  font-size: var(--big-font-size);
+  margin-bottom: var(--mb-five)
+}
+
+.hero_title-color{
+  color: var(--light-blue)
+}
+
+
+/*BUTTONS*/
+.button{
+  display :inline-block;
+  background-color: var(--light-blue);
+  color: #fff !important;
+  margin: 3rem;
+  padding: .75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: .5rem
+}
+
+.button:hover{
+  box-shadow: 0 10px 36px rgba(0,0,0,.25)
+}
+
+/*===== ABOUT =====*/
+.about{
+  margin-bottom: 2rem;
+}
+.about_container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -2rem;
+  margin-right: -2rem;
+  /* justify-content: space-between; */
+}
+
+.about_box{
+  margin-left: 2rem;
+  margin-right: 2rem;
+  /* width: 30%; */
+  width: 270px;
+  flex-grow: 1;
+}
+
+.about_subtitles{
+  margin: 1rem 0 .5rem;
+}
+
+.about_img img{
+  height: 200px;
+  margin: 0 auto 2rem
+}
+
+.about_social_icon{
+  width: max-content;
+  margin-bottom: var(--mb-two);
+  font-size: 1.8rem;
+  color: var(--light-blue) !important;
+  /* margin: 1rem; */
+}
+
+.about_social_icon:hover{
+  color: var(--dark-blue) !important;
+}
 </style>
