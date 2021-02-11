@@ -28,7 +28,7 @@
         
         <!-- MOBILE MENU -->
         <div class="nav_toggle" v-else @click="showNav = !showNav">
-            <font-awesome-icon :icon="['fas', 'bars']" />
+            <font-awesome-icon id="burger" :icon="['fas', 'bars']" />
             <ul :class="{'open':showNav}">
               <li v-for="item in items" :key="item.link" class="nav_item">
                 <a :href="'#' + item.link" class="nav_link">{{item.title}}</a>
@@ -44,10 +44,10 @@
       <button @click="topFunction()" id="goTopBtn" ref="goTopBtn" title="Go to top">Top</button>
 
       <!-- ====== HERO BANNER ====== -->
-      <section class="hero" id="hero">
+      <section class="section" id="hero">
         <div class="hero_data">
           <h1 class="hero_title">Hello, moi c'est Vincent!</h1>
-          <h2>Je suis développeur front junior, avec 1 an et demi d'expérience en codage, et dix ans en design et marketing.</h2>
+          <h3 class="section_subtitle">Je suis développeur front junior, avec 1 an et demi d'expérience en codage, et dix ans en design et marketing.</h3>
           <a class="button" :href="'#contact'">Contact</a>
         </div>
 
@@ -57,15 +57,15 @@
       </section>
 
       <!-- ====== ABOUT ====== -->
-      <section class="about" id="about">
+      <section class="section" id="about">
         <h2 class="section_title">Parcours</h2>
-        <div class="about_container">
+        <div class="section_container">
           <div class="about_box marketing">
             <div class="about_img">
               <img src="/vangogh_shoes.png" alt="vangogh_shoes">
           </div>
             <div>
-              <h3 class="about_subtitles">Marketing</h3>
+              <h3 class="section_subtitle">Marketing</h3>
               <p class="about_text">
                 Diplômé d'un master en entrepreneuriat, j'ai été conseillé en création d'entreprise au sein d'un réseau national de franchise pendant trois ans. 
                 <br/>Puis je suis devenu indépendant, et j'ai élargi mon champ d'activité auprès d'artistes et de chercheurs d'emploi.
@@ -80,7 +80,7 @@
               <img src="/vangogh_sunflowers.png" alt="vangogh_sunflowers">
             </div>
             <div>
-              <h3 class="about_subtitles">Design</h3>
+              <h3 class="section_subtitle">Design</h3>
               <p class="about_text">
                 La fréquentation du monde de la culture m'ayant ouvert de nouveaux horizons, je me suis formé à la réalisation et au montage vidéo afin d'ajouter ces prestations à mes services de bases.  
                 <br/>Aujourd'hui encore je publie un manuel de design sur mon compte Instagram @vangoghmethod.
@@ -96,7 +96,7 @@
               <img src="/vangogh.png" alt="vangogh_lock">
             </div>
             <div>
-              <h3 class="about_subtitles">Développement</h3>
+              <h3 class="section_subtitle">Développement</h3>
               <p class="about_text">
                 Marketing et multimédia m’ont progressivement orienté vers le cœur de la transformation numérique : le développement ! 
                 <br/>Je souhaite désormais intégrer une structure dynamique et reconnue pour donner le meilleur de moi-même et progresser en compétences.
@@ -111,20 +111,21 @@
 
 
       <!-- ====== COMPETENCES ====== -->
-      <section class="competences" id="competences">
+      <section class="section" id="competences">
         <h2 class="section_title">Compétences</h2>
-        <div class="skills_container">
-          <div>
-            <h2 class="skills_subtitle">Skills subtitles</h2>
-            <p class="skills_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo neque est minima, repudiandae eveniet hic culpa consequuntur excepturi sit ut commodi odio nesciunt, totam quae incidunt non tenetur sapiente aspernatur.</p>
+        <div class="section_container">
+          <div class="skills_left">
+            <h3 class="section_subtitle">Développement</h3>
+            <p class="skills_text">J'ai été formé au développement à l'AFPA au cours d'une formation d'un an qui s'est conclue par un stage de mise en pratique Frontend. Cette formation (algorithmie, HTML / CSS / JS, découverte Front-Back End, BDD, sécurité et gestion de projet) m'a donné les bases pour me former par moi-même grâce à des tutos en lignes à des langages, frameworks et librairies spécifiques.
+            </p>
+            <p><strong>Liste non-exhaustive:</strong> VueJS (2 & 3), NuxtJS, Vuetify, Stylus, Pug, GraphQL, Firebase, etc ...    </p>
+            <div class="skills_tech">
+              <font-awesome-icon class="skills_icon" :icon="['fab', 'html5']" />
+              <font-awesome-icon class="skills_icon" :icon="['fab', 'css3']" />
+              <font-awesome-icon class="skills_icon" :icon="['fab', 'js']" />
+            </div>
           </div>
-          <div class="skills_tech">
-            <font-awesome-icon :icon="['fab', 'html5']" />
-            <font-awesome-icon :icon="['fab', 'css3']" />
-            <font-awesome-icon :icon="['fab', 'js']" />
-            <font-awesome-icon :icon="['fas', 'palette']" />
-          </div>
-          <div class="skills_img">
+          <div class="skills_img skills_right">
             <img src="/work3.jpg" alt="photo_ordinateur">
           </div>
         </div>
@@ -132,33 +133,187 @@
 
 
       <!-- ====== PROJETS ====== -->
-      <section class="projects" id="projects">
+      <section class="section" id="projects">
         <h2 class="section_title">Projets</h2>
-        <div class="projects_container">
-          <div class="project_img">
-            <img src="work1.jpg" alt="">
-          </div>
-          <div class="project_img">
-            <img src="work1.jpg" alt="">
-          </div>
-          <div class="project_img">
-            <img src="work1.jpg" alt="">
-          </div>
-          <div class="project_img">
-            <img src="work1.jpg" alt="">
-          </div>
-          <div class="project_img">
-            <img src="work1.jpg" alt="">
-          </div>
-          <div class="project_img">
-            <img src="work1.jpg" alt="">
-          </div>
+        <div class="section_container">
+
+          <v-dialog
+            v-model="dialogOne"
+            width="500"
+            class="dialog"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <div 
+                class="project_img"                
+                v-bind="attrs"
+                v-on="on"
+              >
+                <img src="sidy.png" alt="failed_project">
+              </div>
+            </template>
+
+            <v-card>
+              <v-card-title class="headline grey lighten-2">
+                SIDY - Août / Décembre 2020
+              </v-card-title>
+
+              <v-card-text>
+                Projet de plateforme web dans le domaine de la gestion immobilière, développé par une start-up au sein de l'incubateur BIC Montpellier. Avorté par manque de capital, quatre mois après mon intégration au sein de l'équipe. 
+                <br/><br/>
+                <strong>Stack</strong> : Vue, Pug, Stylus, GraphQL, Kubernetes, AWS  
+              </v-card-text>
+
+            </v-card>
+          </v-dialog>
+
+          <v-dialog
+            v-model="dialogTwo"
+            width="500"
+            class="dialog"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <div 
+                class="project_img"                
+                v-bind="attrs"
+                v-on="on"
+              >
+                <img src="sequence_prevention2.jpeg" alt="sequence_prevention">
+              </div>
+            </template>
+
+            <v-card>
+              <v-card-title class="headline grey lighten-2">
+                SEQUENCE PREVENTION - Mars / Juin 2020
+              </v-card-title>
+              <v-card-text>
+                Application permettant la dématerialisation et le stockage sécurisé des réunions de sécurité pour le compte d'un cabinet d'avocats bordelais spécialisé dans le droit du travail. 
+                Développée en binôme avec mon maître de stage, David MARSALONE, gérant du studio web montpelliérain Pixel Vinaigrette. 
+                <br/><br/>
+                <strong>Stack</strong> : PWA Vue, ORM Redbean, Vuetify, Vue-signature, vue-pdf  
+              </v-card-text>
+
+            </v-card>
+          </v-dialog>
+
+          <v-dialog
+            v-model="dialogThree"
+            width="500"
+            class="dialog"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <div 
+                class="project_img"                
+                v-bind="attrs"
+                v-on="on"
+              >
+                <img src="afpa.png" alt="">
+              </div>
+            </template>
+
+            <v-card>
+              <v-card-title class="headline grey lighten-2">
+                AFPANIER - Janvier / Mars 2020
+              </v-card-title>
+              <v-card-text>
+                Plateforme web de commande de panier repas / légumes pour les stagiaires du centre de formation. 
+                <br/><br/>
+                <strong>Stack</strong> : HTML, CSS, JS, Framework PHP maison 
+              </v-card-text>
+
+            </v-card>
+          </v-dialog>
+
+          <v-dialog
+            v-model="dialogFour"
+            width="500"
+            class="dialog"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <div 
+                class="project_img"                
+                v-bind="attrs"
+                v-on="on"
+              >
+                <img src="shopify.png" alt="">
+              </div>
+            </template>
+
+            <v-card>
+              <v-card-title class="headline grey lighten-2">
+                Projet SHOPIFY - Décembre 2020 / Mars 2021
+              </v-card-title>
+              <v-card-text>
+                Développement d'un site de e-commerce dans le but de me former au SEO. 
+                <br/><br/>
+                <strong>Stack</strong> : CMS Shopify, Photoshop, Aliexpress, Applis Shopify, SEO, SEA  
+              </v-card-text>
+
+            </v-card>
+          </v-dialog>
+
+          <v-dialog
+            v-model="dialogFive"
+            width="500"
+            class="dialog"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <div 
+                class="project_img"                
+                v-bind="attrs"
+                v-on="on"
+              >
+                <img src="net_ninja.jpg" alt="net_ninja">
+              </div>
+            </template>
+
+            <v-card>
+              <v-card-title class="headline grey lighten-2">
+                NET NINJA - 2020 / 2021
+              </v-card-title>
+              <v-card-text>
+                Formation continue Front-end / Back-end grâce aux tutoriels du youtubeur anglais Shaun sur son compte UDEMY. 
+                <br/><br/>
+                <strong>Stack</strong> : Vue, JS, Node, Angular, PHP, CSS, etc ... 
+              </v-card-text>
+
+            </v-card>
+          </v-dialog>
+
+          <v-dialog
+            v-model="dialogSix"
+            width="500"
+            class="dialog"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <div 
+                class="project_img"                
+                v-bind="attrs"
+                v-on="on"
+              >
+                <img src="maison_maitre.png" alt="maison_maitre">
+              </div>
+            </template>
+
+            <v-card>
+              <v-card-title class="headline grey lighten-2">
+                Maison Maître - Mars 2020
+              </v-card-title>
+              <v-card-text>
+                Proposition de site web sous forme de tunnel de vente afin de candidater à mon stage de validation du diplôme de Développeur web.
+                <br/><br/>
+                <strong>Stack</strong> : HTML, CSS, JS, Canva (création graphique)  
+              </v-card-text>
+
+            </v-card>
+          </v-dialog>
+
         </div>
       </section>
 
 
       <!-- ====== CONTACT ====== -->
-      <section class="contact" id="contact">
+      <section class="section" id="contact">
+        <h2 class="section_title">Contact</h2>
         <form class="contact-form" @submit.prevent="sendEmail">
           <label>Name</label>
           <input type="text" name="user_name" required>
@@ -175,7 +330,7 @@
 
     <!-- ====== FOOTER ====== -->
     <footer>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span>&copy; {{ new Date().getFullYear() }} / Portfolio réalisé avec NuxtJS, repo accessible <a href="https://github.com/vincentherail/portfolio">ici</a>. </span> 
     </footer>
 
   </div>
@@ -195,7 +350,13 @@ export default {
         {link:'contact', title: 'Contact'}
         ],
       mobileView: false,
-      showNav: false
+      showNav: false,
+      dialogOne: false, 
+      dialogTwo: false, 
+      dialogThree: false, 
+      dialogFour: false, 
+      dialogFive: false, 
+      dialogSix: false
     }
   },
   methods: {
@@ -343,21 +504,6 @@ img{
   background-color: var(--light-blue); 
 }
 
-/*===== CLASS CSS ===== */
-.section_title{
-  position: relative;
-  font-size: var(--h2-font-size);
-  color: var(--light-blue);
-  margin-top: var(--mb-two);
-  margin-bottom :var(--mb-four);
-  text-align: center
-}
-
-.section{
-  padding-top: 3rem;
-  padding-bottom: 2rem
-}
-
 /*===== NAV =====*/
 
 header{
@@ -390,10 +536,6 @@ nav{
   /* padding-left: auto; */
 }
 
-/* .nav_menu a:active{
-  color: red
-} */
-
 .isActive{
   color: var(--dark-blue) !important;
 }
@@ -419,18 +561,12 @@ nav{
   margin-bottom: var(--mb-four)
 }
 
-
 .open{
   transform: translateX(-120%)
 }
 
 .nav_link{
   position :relative;
-  /* color: #fff */
-}
-
-.nav_link:hover{
-  position: relative
 }
 
 .nav_link:hover::after, .isActive::after{
@@ -443,6 +579,31 @@ nav{
   background-color: var(--light-blue)
 }
 
+/*===== CLASS CSS ===== */
+.section{
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  width: 100%;
+}
+
+.section_title{
+  position: relative;
+  font-size: var(--h2-font-size);
+  color: var(--light-blue);
+  margin-top: var(--mb-two);
+  margin-bottom :var(--mb-four);
+  text-align: center
+}
+
+.section_container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.section_subtitle{
+  margin: 1rem 0 .5rem;
+}
+
 main{
     max-width: 1024px;
     margin-right: auto;
@@ -450,7 +611,7 @@ main{
 }
 
 /*===== HERO =====*/
-.hero{
+#hero{
   height: calc(100vh - 10rem);
   row-gap: 1rem;
   display: flex;
@@ -502,15 +663,8 @@ main{
 }
 
 /*===== ABOUT =====*/
-.about{
+#about{
   margin-bottom: 2rem;
-}
-.about_container{
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -2rem;
-  margin-right: -2rem;
-  /* justify-content: space-between; */
 }
 
 .about_box{
@@ -519,10 +673,6 @@ main{
   /* width: 30%; */
   width: 270px;
   flex-grow: 1;
-}
-
-.about_subtitles{
-  margin: 1rem 0 .5rem;
 }
 
 .about_img img{
@@ -541,4 +691,66 @@ main{
 .about_social_icon:hover{
   color: var(--dark-blue) !important;
 }
+
+/*===== SKILLS =====*/
+
+.skills_tech{
+  display: flex;
+  justify-content: center;
+}
+.skills_text{
+  margin-bottom: 1rem !important;
+}
+.skills_icon{
+  width: max-content;
+  margin-bottom: var(--mb-two);
+  font-size: 3rem;
+  margin: 2rem
+}
+.skills_left{
+  /* flex-grow: 3; */
+  max-width: 500px;
+}
+
+.skills_right{
+  /* flex-grow: 1; */
+  width: 392px;
+}
+.skills_img img{
+  border-radius: 5%;
+  margin-top: 2rem;
+  /* height: 250px; */
+  /* width: auto; */
+}
+
+@media screen and (max-width: 768px) {
+  .section{
+
+  }
+  .section_container{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+  }
+  #about .section_container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/*===== PROJECTS =====*/
+
+#projects .section_container{
+  /* display: flex; */
+}
+
+.project_img{
+  margin: 1rem;
+  width: 200px;
+  /* padding: 2rem; */
+}
+.project_img img{
+  border-radius: 5%;
+}
+
 </style>
