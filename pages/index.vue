@@ -47,7 +47,7 @@
       <section class="section" id="hero">
         <div class="hero_data">
           <h1 class="hero_title">Hello, moi c'est Vincent!</h1>
-          <h3 class="section_subtitle">Je suis développeur front junior, avec 1 an et demi d'expérience en codage, et dix ans en design et marketing.</h3>
+          <h3 class="section_subtitle">Je suis développeur front junior, avec 1 an d'expérience en codage, et dix ans en design et marketing.</h3>
           <a class="button" :href="'#contact'">Contact</a>
         </div>
 
@@ -153,16 +153,26 @@
             </template>
 
             <v-card>
-              <v-card-title class="headline grey lighten-2">
-                SIDY - Août / Décembre 2020
+              <v-card-title class="headline blue lighten-2">
+                SIDY 
+              </v-card-title>
+              <v-card-title class="subtitle-1 blue lighten-3">
+                Août / Décembre 2020
               </v-card-title>
 
-              <v-card-text>
+              <v-card-text class="py-6">
                 Projet de plateforme web dans le domaine de la gestion immobilière, développé par une start-up au sein de l'incubateur BIC Montpellier. Avorté par manque de capital, quatre mois après mon intégration au sein de l'équipe. 
                 <br/><br/>
                 <strong>Stack</strong> : Vue, Pug, Stylus, GraphQL, Kubernetes, AWS  
               </v-card-text>
-
+              <v-btn
+                elevation="2"
+                rounded
+                small
+                text
+                class="next_btn"
+                @click="nextProject(dialogOne)"
+              >Next</v-btn>
             </v-card>
           </v-dialog>
 
@@ -182,16 +192,26 @@
             </template>
 
             <v-card>
-              <v-card-title class="headline grey lighten-2">
-                SEQUENCE PREVENTION - Mars / Juin 2020
+              <v-card-title class="headline indigo darken-4 white--text">
+                SEQUENCE PREVENTION
               </v-card-title>
-              <v-card-text>
+              <v-card-title class="subtitle-1 indigo darken-3 white--text">
+                Mars / Juin 2020
+              </v-card-title>
+              <v-card-text class="py-6">
                 Application permettant la dématerialisation et le stockage sécurisé des réunions de sécurité pour le compte d'un cabinet d'avocats bordelais spécialisé dans le droit du travail. 
                 Développée en binôme avec mon maître de stage, David MARSALONE, gérant du studio web montpelliérain Pixel Vinaigrette. 
                 <br/><br/>
-                <strong>Stack</strong> : PWA Vue, ORM Redbean, Vuetify, Vue-signature, vue-pdf  
+                <strong>Stack</strong> : PWA Vue, ORM Redbean, BDD NoSQL, Vuetify, Vue-signature, vue-pdf  
               </v-card-text>
-
+              <v-btn
+                elevation="2"
+                rounded
+                small
+                text
+                class="next_btn"
+                @click="nextProject(dialogTwo)"
+              >Next</v-btn>
             </v-card>
           </v-dialog>
 
@@ -211,15 +231,25 @@
             </template>
 
             <v-card>
-              <v-card-title class="headline grey lighten-2">
-                AFPANIER - Janvier / Mars 2020
+              <v-card-title class="headline light-green darken-1 white--text">
+                AFPANIER
               </v-card-title>
-              <v-card-text>
+              <v-card-title class="subtitle-1 light-green lighten-1 white--text">
+                Janvier / Mars 2020
+              </v-card-title>
+              <v-card-text class="py-6">
                 Plateforme web de commande de panier repas / légumes pour les stagiaires du centre de formation. 
                 <br/><br/>
-                <strong>Stack</strong> : HTML, CSS, JS, Framework PHP maison 
+                <strong>Stack</strong> : HTML, CSS, JS, Framework PHP maison, BDD MySQL 
               </v-card-text>
-
+              <v-btn
+                elevation="2"
+                rounded
+                small
+                text
+                class="next_btn"
+                @click="nextProject(dialogThree)"
+              >Next</v-btn>
             </v-card>
           </v-dialog>
 
@@ -239,15 +269,25 @@
             </template>
 
             <v-card>
-              <v-card-title class="headline grey lighten-2">
-                Projet SHOPIFY - Décembre 2020 / Mars 2021
+              <v-card-title class="headline lime lighten-2">
+                Projet SHOPIFY
               </v-card-title>
-              <v-card-text>
+              <v-card-title class="subtitle-1 lime lighten-3">
+                Décembre 2020 / Mars 2021
+              </v-card-title>
+              <v-card-text class="py-6">
                 Développement d'un site de e-commerce dans le but de me former au SEO. 
                 <br/><br/>
                 <strong>Stack</strong> : CMS Shopify, Photoshop, Aliexpress, Applis Shopify, SEO, SEA  
               </v-card-text>
-
+              <v-btn
+                elevation="2"
+                rounded
+                small
+                text
+                class="next_btn"
+                @click="nextProject(dialogFour)"
+              >Next</v-btn>
             </v-card>
           </v-dialog>
 
@@ -267,15 +307,25 @@
             </template>
 
             <v-card>
-              <v-card-title class="headline grey lighten-2">
-                NET NINJA - 2020 / 2021
+              <v-card-title class="headline black white--text">
+                NET NINJA
               </v-card-title>
-              <v-card-text>
+              <v-card-title class="subtitle-1 black red--text">
+                2020 / 2021
+              </v-card-title>
+              <v-card-text class="py-6">
                 Formation continue Front-end / Back-end grâce aux tutoriels du youtubeur anglais Shaun sur son compte UDEMY. 
                 <br/><br/>
                 <strong>Stack</strong> : Vue, JS, Node, Angular, PHP, CSS, etc ... 
               </v-card-text>
-
+              <v-btn
+                elevation="2"
+                rounded
+                small
+                text
+                class="next_btn"
+                @click="nextProject(dialogFive)"
+              >Next</v-btn>
             </v-card>
           </v-dialog>
 
@@ -295,15 +345,17 @@
             </template>
 
             <v-card>
-              <v-card-title class="headline grey lighten-2">
-                Maison Maître - Mars 2020
+              <v-card-title class="headline green darken-4 white--text">
+                MAISON MAÎTRE
               </v-card-title>
-              <v-card-text>
+              <v-card-title class="subtitle-1 green darken-3 white--text">
+                Mars 2020
+              </v-card-title>
+              <v-card-text class="py-6">
                 Proposition de site web sous forme de tunnel de vente afin de candidater à mon stage de validation du diplôme de Développeur web.
                 <br/><br/>
                 <strong>Stack</strong> : HTML, CSS, JS, Canva (création graphique)  
               </v-card-text>
-
             </v-card>
           </v-dialog>
 
@@ -315,13 +367,13 @@
       <section class="section" id="contact">
         <h2 class="section_title">Contact</h2>
         <form class="contact-form" @submit.prevent="sendEmail">
-          <label>Name</label>
-          <input type="text" name="user_name" required>
+          <label>Nom</label>
+          <input type="text" name="user_name" required class="contact_input">
           <label>Email</label>
-          <input type="email" name="user_email" required>
+          <input type="email" name="user_email" required class="contact_input">
           <label>Message</label>
-          <textarea name="message" required></textarea>
-          <input type="submit" value="Send">
+          <textarea name="message" required class="contact_input"></textarea>
+          <input type="submit" value="Send" class="button">
         </form>
       </section>
 
@@ -329,8 +381,12 @@
     </main>
 
     <!-- ====== FOOTER ====== -->
-    <footer>
-      <span>&copy; {{ new Date().getFullYear() }} / Portfolio réalisé avec NuxtJS, repo accessible <a href="https://github.com/vincentherail/portfolio">ici</a>. </span> 
+    <footer class="footer" >
+      <span>&copy; {{ new Date().getFullYear() }} / Portfolio responsive, réalisé avec NuxtJS, repo accessible ici             
+        <a href="https://github.com/vincentherail/portfolio" class="about_social_icon">
+          <font-awesome-icon :icon="['fab', 'github']" />
+        </a>
+      </span> 
     </footer>
 
   </div>
@@ -360,36 +416,52 @@ export default {
     }
   },
   methods: {
-    handleView(){
-      this.mobileView = window.innerWidth <= 768;
+    // switch to the next dialog Project (not really UX friendly actually, could be improve)
+    nextProject(dialog){
+      switch(dialog) {
+        case this.dialogOne: this.dialogOne = false ; this.dialogTwo = true; break
+        case this.dialogTwo: this.dialogTwo = false ; this.dialogThree = true; break
+        case this.dialogThree: this.dialogThree = false ; this.dialogFour = true; break
+        case this.dialogFour: this.dialogFour = false ; this.dialogFive = true; break
+        case this.dialogFive: this.dialogFive = false ; this.dialogSix = true; break
+      }
     },
+    // JS library to send an email to vincent.herail@gmail.com
     sendEmail: (e) => {
       emailjs.sendForm('service_a494ztq', 'template_g0pg96j', e.target, 'user_Tm1FJXS84TGFElsWMsQfV')
         .then((result) => {
-            console.log('SUCCESS!', result.status, result.text);
+          console.log('SUCCESS!', result.status, result.text);
         }, (error) => {
-            console.log('FAILED...', error);
+          console.log('FAILED...', error);
         });
     },
+    // make appear the gobackbtn
     handleScroll (event) {
       if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-          this.$refs.goTopBtn.style.display = "block";
+        this.$refs.goTopBtn.style.display = "block";
         } else {
           this.$refs.goTopBtn.style.display = "none";
         }
     },
+    // go back to the top button
     topFunction: () => {
       document.body.scrollTop = 0; // Safari
       document.documentElement.scrollTop = 0; // Chrome, Firefox, IE and Opera
-    }
+    },
+    // Large screen x mobile menu switch
+    handleView(){
+      this.mobileView = window.innerWidth <= 768;
+    },
   },
   created(){
     this.handleView();
     window.addEventListener('resize', this.handleView)
   },
+  // For Scroll active menu listener
   mounted() {
     document.addEventListener('scroll', this.handleScroll)
   },
+  // For Scroll active menu listener
   destroyed () {
     document.removeEventListener('scroll', this.handleScroll);
   },
@@ -504,6 +576,9 @@ img{
   background-color: var(--light-blue); 
 }
 
+.next_btn{
+  margin: 1rem
+}
 /*===== NAV =====*/
 
 header{
@@ -685,7 +760,6 @@ main{
   margin-bottom: var(--mb-two);
   font-size: 1.8rem;
   color: var(--light-blue) !important;
-  /* margin: 1rem; */
 }
 
 .about_social_icon:hover{
@@ -698,54 +772,51 @@ main{
   display: flex;
   justify-content: center;
 }
+
 .skills_text{
   margin-bottom: 1rem !important;
 }
+
 .skills_icon{
   width: max-content;
   margin-bottom: var(--mb-two);
   font-size: 3rem;
   margin: 2rem
 }
+
 .skills_left{
-  /* flex-grow: 3; */
   max-width: 500px;
 }
 
 .skills_right{
-  /* flex-grow: 1; */
   width: 392px;
 }
 .skills_img img{
   border-radius: 5%;
   margin-top: 2rem;
-  /* height: 250px; */
-  /* width: auto; */
 }
 
 @media screen and (max-width: 768px) {
-  .section{
 
-  }
   .section_container{
     display: flex;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
     justify-content: center;
   }
-  #about .section_container{
+  #skills .section_container{
     display: flex;
     flex-wrap: wrap;
   }
 }
 
 /*===== PROJECTS =====*/
-
 #projects .section_container{
-  /* display: flex; */
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .project_img{
-  margin: 1rem;
+  margin: 2rem;
   width: 200px;
   /* padding: 2rem; */
 }
@@ -753,4 +824,47 @@ main{
   border-radius: 5%;
 }
 
+/*===== CONTACT =====*/
+#contact{
+  margin-bottom: 3rem 
+}
+
+.contact_input{
+  width: 100%;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi);
+  padding: 1rem;
+  border-radius: .5rem;
+  border: 1.5px solid var(--dark-blue);
+  outline: none;
+  margin-bottom: var(--mb-four)
+}
+
+.contact_button{
+  display: block;
+  border: none;
+  outline: none;
+  font-size: var(--normal-font-size);
+  cursor: pointer;
+  margin-left: auto
+}
+
+/*===== FOOTER =====*/
+
+.footer{
+  background-color: var(--light-blue);
+  padding: 4rem 0rem;
+  color: white;
+  text-align: center;
+}
+
+.footer span{
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem
+}
+
+.footer .about_social_icon{
+  color: white !important;
+}
 </style>
