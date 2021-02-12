@@ -721,7 +721,7 @@ main{
 
 /*===== HERO =====*/
 #hero{
-  height: 80vh;
+  height: 85vh;
   display: flex;
   flex-wrap: wrap-reverse;
   align-items: center;
@@ -750,7 +750,22 @@ main{
 .hero_title-color{
   color: var(--light-blue)
 }
+@media screen and (max-width: 768px) {
 
+  .hero_title{
+    font-size: var(--big-font-size);
+    margin-bottom: var(--mb-five);
+  }
+
+  .hero_img img{
+    margin-bottom: var(--mb-five);
+  border-radius: 50%;
+}
+
+  #hero .button{
+    margin: 2rem;
+  }
+}
 /*===== ABOUT =====*/
 #about{
   margin-bottom: 2rem;
