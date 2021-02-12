@@ -30,7 +30,10 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/vue-scrollactive.js'],
+  plugins: [
+    '~/plugins/vue-scrollactive.js',
+    '~/plugins/vue-particles.js'
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

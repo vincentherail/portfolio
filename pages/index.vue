@@ -45,13 +45,13 @@
 
       <!-- ====== HERO BANNER ====== -->
       <section class="section" id="hero">
-        <div class="hero_data">
+        <div class="hero_data" style="z-index:99;">
           <h1 class="hero_title">Hello, moi c'est Vincent!</h1>
-          <h3 class="section_subtitle">Je suis développeur front junior, avec 1 an d'expérience en codage, et dix ans en design et marketing.</h3>
-          <a class="button" :href="'#contact'">Contact</a>
+          <h3 class="section_subtitle">Je suis développeur front junior, avec 1 an d'expérience en codage, et dix ans en marketing et création multimédia.</h3>
+          <a class="button" :href="'#contact'">Me Contacter</a>
         </div>
 
-        <div class="hero_img">
+        <div class="hero_img" style="z-index:99;">
           <img src="/vincent.jpg" alt="photo_vincent">
         </div>
       </section>
@@ -75,12 +75,12 @@
               </a>
             </div>
           </div>
-          <div class="about_box design">
+          <div class="about_box multimedia">
             <div class="about_img">
               <img src="/vangogh_sunflowers.png" alt="vangogh_sunflowers">
             </div>
             <div>
-              <h3 class="section_subtitle">Design</h3>
+              <h3 class="section_subtitle">Multimédia</h3>
               <p class="about_text">
                 La fréquentation du monde de la culture m'ayant ouvert de nouveaux horizons, je me suis formé à la réalisation et au montage vidéo afin d'ajouter ces prestations à mes services de bases.  
                 <br/>Aujourd'hui encore je publie un manuel de design sur mon compte Instagram @vangoghmethod.
@@ -109,7 +109,6 @@
         </div>
       </section>
 
-
       <!-- ====== COMPETENCES ====== -->
       <section class="section" id="competences">
         <h2 class="section_title">Compétences</h2>
@@ -130,7 +129,6 @@
           </div>
         </div>
       </section>
-
 
       <!-- ====== PROJETS ====== -->
       <section class="section" id="projects">
@@ -362,33 +360,50 @@
         </div>
       </section>
 
-
       <!-- ====== CONTACT ====== -->
       <section class="section" id="contact">
         <h2 class="section_title">Contact</h2>
-        <form class="contact-form" @submit.prevent="sendEmail">
+        <form class="contact-form" @submit.prevent="sendEmail" v-if="!formSent">
           <label>Nom</label>
           <input type="text" name="user_name" required class="contact_input">
           <label>Email</label>
           <input type="email" name="user_email" required class="contact_input">
           <label>Message</label>
           <textarea name="message" required class="contact_input"></textarea>
-          <input type="submit" value="Send" class="button">
+          <input type="submit" value="Envoyer" class="button">
         </form>
+        <div class="formSent" v-else>
+          Merci ! Votre message a bien été envoyé.
+        </div>
       </section>
-
-
     </main>
 
-    <!-- ====== FOOTER ====== -->
-    <footer class="footer" >
-      <span>&copy; {{ new Date().getFullYear() }} / Portfolio responsive, réalisé avec NuxtJS, repo accessible ici             
-        <a href="https://github.com/vincentherail/portfolio" class="about_social_icon">
-          <font-awesome-icon :icon="['fab', 'github']" />
-        </a>
-      </span> 
-    </footer>
-
+      <!-- ====== FOOTER ====== -->
+      <div class="particles">
+        <div class="footer particlecontent" >
+          <span>&copy; {{ new Date().getFullYear() }} / Portfolio responsive, réalisé avec NuxtJS, repo accessible ici             
+            <a href="https://github.com/vincentherail/portfolio" class="about_social_icon">
+              <font-awesome-icon :icon="['fab', 'github']" />
+            </a>
+          </span> 
+        </div>
+        <vue-particles
+          class="particles-js"
+          color="#4070F4"
+          :particleOpacity="0.9"
+          :particlesNumber="50"
+          shapeType="circle"
+          :particleSize="7"
+          :lineLinked="false"
+          :linesDistance="150"
+          :moveSpeed="2.5"
+          :hoverEffect="false"
+          hoverMode="grab"
+          :clickEffect="false"
+          clickMode="push"
+        >
+        </vue-particles>
+      </div>
   </div>
 </template>
 
@@ -407,6 +422,7 @@ export default {
         ],
       mobileView: false,
       showNav: false,
+      formSent: false,
       dialogOne: false, 
       dialogTwo: false, 
       dialogThree: false, 
@@ -427,13 +443,17 @@ export default {
       }
     },
     // JS library to send an email to vincent.herail@gmail.com
-    sendEmail: (e) => {
+    sendEmail(e) {
       emailjs.sendForm('service_a494ztq', 'template_g0pg96j', e.target, 'user_Tm1FJXS84TGFElsWMsQfV')
         .then((result) => {
           console.log('SUCCESS!', result.status, result.text);
+            if (result.status = 200 ) {
+             this.formSent = true 
+            }; 
         }, (error) => {
           console.log('FAILED...', error);
         });
+
     },
     // make appear the gobackbtn
     handleScroll (event) {
@@ -494,7 +514,6 @@ export default {
     --h2-font-size: 2rem;
     --normal-font-size: 1rem
   }
-  
 }
 
 /*===== Margins =====*/
@@ -579,8 +598,8 @@ img{
 .next_btn{
   margin: 1rem
 }
-/*===== NAV =====*/
 
+/*===== NAV =====*/
 header{
   width: 100%;
   position: fixed;
@@ -590,6 +609,7 @@ header{
   background-color: #fff;
   box-shadow: 0 1px 4px rgba(146,161,176,.15)
 }
+
 nav{
   max-width: 1024px;
   margin-left: auto;
@@ -608,7 +628,6 @@ nav{
   margin-right: 0;
   display: flex;
   justify-content: space-around;
-  /* padding-left: auto; */
 }
 
 .isActive{
@@ -685,25 +704,36 @@ main{
     margin-left: auto;
 }
 
+/*BUTTONS*/
+.button{
+  display :inline-block;
+  background-color: var(--light-blue);
+  color: #fff !important;
+  margin: 3rem;
+  padding: .75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: .5rem
+}
+
+.button:hover{
+  box-shadow: 0 10px 36px rgba(0,0,0,.25)
+}
+
 /*===== HERO =====*/
 #hero{
-  height: calc(100vh - 10rem);
-  row-gap: 1rem;
+  height: 80vh;
   display: flex;
   flex-wrap: wrap-reverse;
   align-items: center;
-  padding-top: 1rem
 }
 
 .hero_data{
-  /* align-self: center */
   width: 192px;
   flex-grow: 3;
 }
 .hero_img {
   width: 192px;
   flex-grow: 1;
-  /* margin: 3rem */
   margin-right: 3rem;
   margin-left: 3rem;
 }
@@ -721,22 +751,6 @@ main{
   color: var(--light-blue)
 }
 
-
-/*BUTTONS*/
-.button{
-  display :inline-block;
-  background-color: var(--light-blue);
-  color: #fff !important;
-  margin: 3rem;
-  padding: .75rem 2.5rem;
-  font-weight: var(--font-semi);
-  border-radius: .5rem
-}
-
-.button:hover{
-  box-shadow: 0 10px 36px rgba(0,0,0,.25)
-}
-
 /*===== ABOUT =====*/
 #about{
   margin-bottom: 2rem;
@@ -745,7 +759,6 @@ main{
 .about_box{
   margin-left: 2rem;
   margin-right: 2rem;
-  /* width: 30%; */
   width: 270px;
   flex-grow: 1;
 }
@@ -818,15 +831,17 @@ main{
 .project_img{
   margin: 2rem;
   width: 200px;
-  /* padding: 2rem; */
 }
+
 .project_img img{
   border-radius: 5%;
 }
 
 /*===== CONTACT =====*/
 #contact{
-  margin-bottom: 3rem 
+  z-index: 999;
+  overflow: hidden;
+  margin-bottom: 4rem;
 }
 
 .contact_input{
@@ -836,8 +851,9 @@ main{
   padding: 1rem;
   border-radius: .5rem;
   border: 1.5px solid var(--dark-blue);
+  background-color: white;
   outline: none;
-  margin-bottom: var(--mb-four)
+  margin-bottom: var(--mb-four);
 }
 
 .contact_button{
@@ -849,22 +865,51 @@ main{
   margin-left: auto
 }
 
+.formSent{
+  height: 20vh;
+}
+
 /*===== FOOTER =====*/
 
 .footer{
-  background-color: var(--light-blue);
   padding: 4rem 0rem;
-  color: white;
-  text-align: center;
+  overflow: hidden;
 }
 
 .footer span{
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.1rem
+  color: var(--light-blue);
+  font-size: 1.2rem
 }
 
 .footer .about_social_icon{
-  color: white !important;
+  color: var(--light-blue) !important;
 }
+
+.particles{
+  position: relative;
+  justify-content: center;
+  height: 15vh;
+  z-index: 999 !important;
+  display: block;
+}
+
+.particlecontent{
+  text-align: center;
+}
+
+#particles-js {
+    z-index: -1 !important;
+    position: absolute;
+    width: 100%;
+    max-height: 150px;
+    left: 0px;
+    bottom: 0px;
+    overflow: hidden;
+
+}
+
+canvas {
+  display: inline-block;
+}
+
 </style>
