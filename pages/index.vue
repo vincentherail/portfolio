@@ -67,8 +67,8 @@
             <div>
               <h3 class="section_subtitle">Marketing</h3>
               <p class="about_text">
-                Diplômé d'un master en entrepreneuriat, j'ai été conseillé en création d'entreprise au sein d'un réseau national de franchise pendant trois ans. 
-                <br/>Puis je suis devenu indépendant, et j'ai élargi mon champ d'activité auprès d'artistes et de chercheurs d'emploi.
+                Diplômé d'un master en entrepreneuriat, j'ai été conseiller en création d'entreprise au sein d'un réseau national de franchise pendant trois ans. 
+                <br/>Puis je suis devenu indépendant, et j'ai élargi ma clientèle auprès d'artistes et de chercheurs d'emploi.
               </p>
               <a href="https://www.linkedin.com/in/vincent-herail-143a72135/" class="about_social_icon">
                 <font-awesome-icon :icon="['fab', 'linkedin']" />
@@ -115,7 +115,7 @@
         <div class="section_container">
           <div class="skills_left">
             <h3 class="section_subtitle">Développement</h3>
-            <p class="skills_text">J'ai été formé au développement à l'AFPA au cours d'une formation d'un an qui s'est conclue par un stage de mise en pratique Frontend. Cette formation (algorithmie, HTML / CSS / JS, découverte Front-Back End, BDD, sécurité et gestion de projet) m'a donné les bases pour me former par moi-même grâce à des tutos en lignes à des langages, frameworks et librairies spécifiques.
+            <p class="skills_text">J'ai été obtenu un titre de développeur web / web mobile à l'AFPA au cours d'une formation d'un an qui s'est conclue par un stage de mise en pratique Frontend. Cette formation (algorithmie, HTML / CSS / JS, découverte Front-Back End, BDD, sécurité et gestion de projet) m'a donné les bases nécessaires pour progresser grâce à des tutos en lignes sur des langages, frameworks et librairies spécifiques.
             </p>
             <p><strong>Liste non-exhaustive:</strong> VueJS (2 & 3), NuxtJS, Vuetify, Stylus, Pug, GraphQL, Firebase, etc ...    </p>
             <div class="skills_tech">
@@ -159,7 +159,7 @@
               </v-card-title>
 
               <v-card-text class="py-6">
-                Projet de plateforme web dans le domaine de la gestion immobilière, développé par une start-up au sein de l'incubateur BIC Montpellier. Avorté par manque de capital, quatre mois après mon intégration au sein de l'équipe. 
+                Projet de plateforme web dans le domaine de la gestion immobilière, développé par une start-up au sein de l'incubateur BIC Montpellier. Arrété par manque de capital, quatre mois après mon intégration au sein de l'équipe. 
                 <br/><br/>
                 <strong>Stack</strong> : Vue, Pug, Stylus, GraphQL, Kubernetes, AWS  
               </v-card-text>
