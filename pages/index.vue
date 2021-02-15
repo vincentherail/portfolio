@@ -57,7 +57,7 @@
       </section>
 
       <!-- ====== Instagram ====== -->
-      <section class="section" id="about">
+      <!-- <section class="section" id="about">
           <vue-instagram token="1a429b9463c0819ae7cd8950bff30eba" :count="5" mediaType="image">
             <template v-slot:loading="props">
               <h1 v-if="props.loading" class="fancy-loading">Loading, please wait...</h1>
@@ -69,7 +69,7 @@
               <div class="fancy-alert"> {{ props.error.error_message }} </div>
             </template>
           </vue-instagram>
-      </section>
+      </section> -->
 
       <!-- ====== ABOUT ====== -->
       <section class="section" id="about">
