@@ -32,7 +32,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/vue-scrollactive.js',
-    '~/plugins/vue-particles.js'
+    '~/plugins/vue-particles.js',
+    '~/plugins/vue-instagram.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
