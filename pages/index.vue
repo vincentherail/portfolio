@@ -56,20 +56,32 @@
         </div>
       </section>
 
-      <!-- ====== Instagram ====== -->
-      <!-- <section class="section" id="about">
-          <vue-instagram token="1a429b9463c0819ae7cd8950bff30eba" :count="5" mediaType="image">
+      <!-- ====== Instagram feed // todo later ====== -->
+      <section class="section" id="insta">
+        <!-- <oneWaveInsta 
+            token="1a429b9463c0819ae7cd8950bff30eba"
+            fields="media_url,media_type,caption"
+            :mediatypes="['IMAGE']"
+        >
             <template v-slot:loading="props">
-              <h1 v-if="props.loading" class="fancy-loading">Loading, please wait...</h1>
+            <h1 v-if="props.loading" class="fancy-loading">
+                Loading, please wait...
+            </h1>
             </template>
+
             <template v-slot:feeds="props">
-              <li class="fancy-list"> {{ props.feed.link }} </li>
+            <div>
+                <img :src="props.feed.media_url" />
+                <div :text="props.feed.caption" />
+            </div>
             </template>
+
             <template v-slot:error="props">
-              <div class="fancy-alert"> {{ props.error.error_message }} </div>
+            <div class="fancy-alert">{{ props.error }}</div>
             </template>
-          </vue-instagram>
-      </section> -->
+        </oneWaveInsta> -->
+
+      </section>
 
       <!-- ====== ABOUT ====== -->
       <section class="section" id="about">
@@ -128,20 +140,34 @@
       <section class="section" id="competences">
         <h2 class="section_title">Compétences</h2>
         <div class="section_container">
-          <div class="skills_left">
-            <h3 class="section_subtitle">Développement</h3>
-            <p class="skills_text">J'ai été obtenu un titre de développeur web / web mobile à l'AFPA au cours d'une formation d'un an qui s'est conclue par un stage de mise en pratique Frontend. Cette formation (algorithmie, HTML / CSS / JS, découverte Front-Back End, BDD, sécurité et gestion de projet) m'a donné les bases nécessaires pour progresser grâce à des tutos en lignes sur des langages, frameworks et librairies spécifiques.
-            </p>
-            <p><strong>Liste non-exhaustive:</strong> VueJS (2 & 3), NuxtJS, Vuetify, Stylus, Pug, GraphQL, Firebase, etc ...    </p>
-            <div class="skills_tech">
-              <font-awesome-icon class="skills_icon" :icon="['fab', 'html5']" />
-              <font-awesome-icon class="skills_icon" :icon="['fab', 'css3']" />
-              <font-awesome-icon class="skills_icon" :icon="['fab', 'js']" />
+          <div class="skills developpement">
+            <div class="skills_left">
+              <h3 class="section_subtitle">Développement</h3>
+              <p class="skills_text">J'ai obtenu un titre de professionnel de niveau 5 - Développeur Web / Web Mobile à l'AFPA au cours d'une formation d'un an qui s'est conclue par un stage de mise en pratique Frontend. Cette formation (algorithmie, HTML / CSS / JS, découverte Front-Back End, BDD, sécurité et gestion de projet) m'a donné les bases nécessaires pour progresser grâce à des tutos en lignes sur des langages, frameworks et librairies spécifiques.
+              </p>
+              <p><strong>Liste non-exhaustive:</strong> VueJS (2 & 3), NuxtJS, Vuetify, Stylus, Pug, GraphQL, Firebase, etc ...    </p>
+              <div class="skills_tech">
+                <font-awesome-icon class="skills_icon" :icon="['fab', 'html5']" />
+                <font-awesome-icon class="skills_icon" :icon="['fab', 'css3']" />
+                <font-awesome-icon class="skills_icon" :icon="['fab', 'js']" />
+              </div>
+            </div>
+            <div class="skills_img skills_right">
+              <img src="/work3.jpg" alt="photo_ordinateur">
             </div>
           </div>
-          <div class="skills_img skills_right">
-            <img src="/work3.jpg" alt="photo_ordinateur">
+          <div class="skills collaboration">
+            <div class="skills_img skills_right">
+              <img src="/team_work.png" alt="team_work">
+            </div>
+            <div class="skills_left">
+              <h3 class="section_subtitle">Collaboration</h3>
+              <p class="skills_text">Dès le début de ma carrière, mon Master II en Gestion des Organisations et mon expérience de conseiller en création d'entreprise m'ont permis de collaborer sur des projets de nature très diverses tel que : la coordination d'un réseau national, l'animation de réunion de travail, la formation en face-à-face et le suivi de la progression des professionnels accompagnés. Je m'épanouïs dans le travail en équipe, et me sens aussi à l'aise dans une position de pédagogue que d'apprenant.
+              </p>
+              <p><strong>Mes valeurs professionnelles:</strong> Camaraderie, goût de l'effort, éthique et volonté d'innover.</p>
+            </div>
           </div>
+          
         </div>
       </section>
 
@@ -174,7 +200,7 @@
               </v-card-title>
 
               <v-card-text class="py-6">
-                Projet de plateforme web dans le domaine de la gestion immobilière, développé par une start-up au sein de l'incubateur BIC Montpellier. Arrété par manque de capital, quatre mois après mon intégration au sein de l'équipe. 
+                Projet de plateforme web dans le domaine de la gestion immobilière, développé par une start-up au sein de l'incubateur BIC Montpellier. Intégré au projet en tant que développeur Front, au sein d'une équipe composée de 3 développeurs et d'un CTO.
                 <br/><br/>
                 <strong>Stack</strong> : Vue, Pug, Stylus, GraphQL, Kubernetes, AWS  
               </v-card-text>
@@ -215,7 +241,7 @@
                 Application permettant la dématerialisation et le stockage sécurisé des réunions de sécurité pour le compte d'un cabinet d'avocats bordelais spécialisé dans le droit du travail. 
                 Développée en binôme avec mon maître de stage, David MARSALONE, gérant du studio web montpelliérain Pixel Vinaigrette. 
                 <br/><br/>
-                <strong>Stack</strong> : PWA Vue, ORM Redbean, BDD NoSQL, Vuetify, Vue-signature, vue-pdf  
+                <strong>Stack</strong> : PWA Vue, ORM Redbean, BDD SQLite, Vuetify, Vue-signature, vue-pdf  
               </v-card-text>
               <v-btn
                 elevation="2"
@@ -424,9 +450,10 @@
 
 <script>
 import emailjs from 'emailjs-com';
+import oneWaveInsta from '../components/oneWaveInsta';
 
 export default {
-  components: {},
+  components: {oneWaveInsta},
   data() {
     return {
       items: [
@@ -518,7 +545,7 @@ export default {
 :root{
   --body-font: 'Poppins', sans-serif;
   --big-font-size: 2rem;
-  --h2-font-size: 1.25rem;
+  --h2-font-size: 2rem;
   --normal-font-size: 0.938rem;
   --font-semi: 600
 }
@@ -809,7 +836,25 @@ main{
   color: var(--dark-blue) !important;
 }
 
+@media screen and (max-width: 768px) {
+
+  .about_box {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
 /*===== SKILLS =====*/
+#competences .section_container{
+  display: block;
+}
+
+.skills{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
 
 .skills_tech{
   display: flex;
@@ -828,11 +873,11 @@ main{
 }
 
 .skills_left{
-  max-width: 500px;
+  max-width: 550px;
 }
 
 .skills_right{
-  width: 392px;
+  width: 352px;
 }
 .skills_img img{
   border-radius: 5%;
@@ -846,9 +891,12 @@ main{
     flex-wrap: wrap;
     justify-content: center;
   }
-  #skills .section_container{
+  .skills {
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
 
