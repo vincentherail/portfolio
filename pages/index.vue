@@ -57,8 +57,10 @@
       </section>
 
       <!-- ====== Instagram feed // todo later ====== -->
+      <!-- https://github.com/kevinongko/vue-instagram/issues/34
+      https://gitlab.com/snippets/1957175
       <section class="section" id="insta">
-        <!-- <oneWaveInsta 
+        <oneWaveInsta 
             token="1a429b9463c0819ae7cd8950bff30eba"
             fields="media_url,media_type,caption"
             :mediatypes="['IMAGE']"
@@ -79,9 +81,9 @@
             <template v-slot:error="props">
             <div class="fancy-alert">{{ props.error }}</div>
             </template>
-        </oneWaveInsta> -->
+        </oneWaveInsta> 
 
-      </section>
+      </section>-->
 
       <!-- ====== ABOUT ====== -->
       <section class="section" id="about">
