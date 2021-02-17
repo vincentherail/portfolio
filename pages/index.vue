@@ -61,7 +61,7 @@
       https://gitlab.com/snippets/1957175
       <section class="section" id="insta">
         <oneWaveInsta 
-            token="1a429b9463c0819ae7cd8950bff30eba"
+            token=process.env.NUXT_ENV_INSTA_TOKEN
             fields="media_url,media_type,caption"
             :mediatypes="['IMAGE']"
         >
