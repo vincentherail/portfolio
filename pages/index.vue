@@ -55,7 +55,6 @@
           <img src="/vincent.jpg" alt="photo_vincent">
         </div>
       </section>
-      <button @click="test">test : {{ $config.baseURL}}</button>
 
       <!-- ====== Instagram feed // todo later ====== -->
       <!-- https://github.com/kevinongko/vue-instagram/issues/34

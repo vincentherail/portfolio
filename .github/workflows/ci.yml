@@ -39,10 +39,6 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: npm ci
 
-      - name: Hello world action
-        env: # Or as an environment variable
-        NUXT_ENV_INSTA_TOKEN: ${{ secrets.NUXT_ENV_INSTA_TOKEN }}
-
       # - name: Run linter 👀
       #   run: npm run lint
 
