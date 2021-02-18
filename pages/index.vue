@@ -55,6 +55,7 @@
           <img src="/vincent.jpg" alt="photo_vincent">
         </div>
       </section>
+      <button @click="test">test</button>
 
       <!-- ====== Instagram feed // todo later ====== -->
       <!-- https://github.com/kevinongko/vue-instagram/issues/34
@@ -476,6 +477,9 @@ export default {
     }
   },
   methods: {
+    test(){
+      console.log(process.env.NUXT_ENV_INSTA_TOKEN)
+    },
     // switch to the next dialog Project (not really UX friendly actually, could be improve)
     nextProject(dialog){
       switch(dialog) {
