@@ -3,6 +3,9 @@ import colors from 'vuetify/es5/util/colors'
 
 
 export default {
+  privateRuntimeConfig: {
+    baseURL: process.env.NUXT_ENV_INSTA_TOKEN
+  },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
